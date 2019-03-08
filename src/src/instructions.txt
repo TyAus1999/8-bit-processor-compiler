@@ -1,30 +1,173 @@
-nop~0x00
-mov a,[d]~0x01
-mov a,b~0x02
-mov a,c~0x03
-mov a,d~0x04
-mov b,[d]~0x05
-mov b,a~0x06
-mov b,c~0x07
-mov b,d~0x08
-mov c,[d]~0x09
-mov c,a~0x0A
-mov c,b~0x0B
-mov c,d~0x0C
-mov d,a~0x0D
-mov d,b~0x0E
-mov d,c~0x0f
-mov [d],a~0x10
-mov [d],b~0x11
-mov [d],c~0x12
-add a,a~0x13
-add a,b~0x14
-add a,c~0x15
-add a,d~0x16
-mov a,value~0x17
-mov b,value~0x18
-mov c,value ~0x19
-mov d,value~0x1A
-sub a,b~0x1B
-sub a,c~0x1C
-sub a,d~0x1D
+8 bit
+Registers A,B,C,D
+	mov a,[d]~ 	0x01~
+	mov a,b~	0x02~
+	mov a,c~	0x03~
+	mov a,d~	0x04~
+
+	mov b,[d]~	0x05~
+	mov b,a~	0x06~
+	mov b,c~	0x07~
+	mov b,d~	0x08~
+
+	mov c,[d]~	0x09~
+	mov c,a~	0x0A~
+	mov c,b~	0x0B~
+	mov c,d~	0x0C~
+
+	mov d,a~	0x0D~
+	mov d,b~	0x0E~
+	mov d,c~	0x0F~
+
+	mov [d],a~	0x10~
+	mov [d],b~	0x11~
+	mov [d],c~	0x12~
+
+	bring a,dIn~
+	bring b,dIn~
+	bring c,dIn~
+	bring d,dIn~
+
+Arithmatic unit
+	add a,a~	0x13~
+	add a,b~	0x14~
+	add a,c~	0x15~
+	add a,d~	0x16~
+	
+	a=a-b
+	sub a,b		0x1B~
+	sub a,c		0x1C~
+	sub a,d		0x1D~
+
+Register A,B,C,D values
+	mov a,value~	0x17~
+	mov b,value	0x18~
+	mov c,value	0x19~
+	mov d,value	0x1A~
+
+Comaparisons
+	cmp a,b		0x1E~
+	cmp a,c		0x1F~
+	cmp a,d		0x20~
+
+Maybe not needed /*
+	cmp b,a		0x21
+	cmp b,c		0x22
+	cmp b,d		0x23
+
+	cmp c,a		0x24
+	cmp c,b		0x25
+	cmp c,d		0x26
+	
+	cmp d,a		0x27
+	cmp d,b		0x28
+	cmp d,c		0x29
+*/
+
+Jumps	**DO NOT JUMP TO ANOTHER JUMP PROCESSOR WILL BREAK**
+	jmp [a]		0x2A~
+	jmp value	0x2B~
+
+	jeq [a]		0x2D~
+	jeq value	0x2c~
+
+	jne [a]		0x2E~
+	jne value	0x2F~
+
+	jl [a]		0x30~
+	jl value	0x31~
+
+	jg [a]		0x32~
+	jg value	0x33~
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+Graphics instructions
+	mov {b},[d]	0x34~
+	mov {b},a	0x35~
+	mov {b},c	0x36~
+	//mov {b},d	0x37
+	
+	Make sure to only have one 1 in the bus and in Register B
+	mov a,{b}	0x38~
+	
+Increments / Decrements
+	inc a		0x39~
+	inc b		0x3A~
+	inc c		0x3B~
+	inc d		0x3C~
+
+	dec a		0x3D~
+	dec b		0x3E~
+	dec c		0x3F~
+	dec d		0x40~
+
+Shifts
+	shr a,value	0x41~
+	shr b,value	0x42~
+	shr c,value	0x43~
+	shr d,value	0x44~
+
+	shl a,value	0x45~
+	shl b,value	0x46~
+	shl c,value	0x47~
+	shl d,value	0x48~
+
+Reading periferals
+	rea a		0x49~
+
+
+
+///
+mov x, #
+xor reg, x
+xor reg, reg
+test reg, #
+test a, 5 //A=111, 101
+test a, 1
+or reg, #/reg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
