@@ -1,0 +1,34 @@
+0x80 = left
+0x40 = up
+0x20 = right
+0x10 = down
+
+0x08 = select
+0x04 = start
+
+0x02 = A
+0x01 = B
+
+return address (0xff)
+
+
+Clear screen
+Draw Character
+check controller
+decide what button was pressed
+draw character
+
+
+pong wall
+Make paddle
+	3 pixels wide
+	paddle address = 0x65
+move up and down~
+make ball
+	ball B = 0x66 (x) need or instruction to complete drawing functions
+	Ball A = 0x67 (y)
+	ball xdir = 0x68 (1=right,0=left)
+	ball ydir = 0x69 (1=up,0=down)
+make ball move in diagonal directions
+Bouncing
+Make CPU Player
